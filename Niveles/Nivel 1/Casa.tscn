@@ -464,6 +464,6 @@ environment = SubResource("Environment_6w00u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.46928, 1.53169, -2.99475)
 
 [node name="Mama" parent="." instance=ExtResource("5_oxdkq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15069, 2, -19)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -19)
 puntos_patruya = Array[Vector3]([Vector3(15, 2, -3), Vector3(13, 2, -10), Vector3(14, 2, -19), Vector3(4, 2, -19)])
 prefab_chancla = ExtResource("6_20k1q")
