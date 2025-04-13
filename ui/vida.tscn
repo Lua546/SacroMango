@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://wm7lg6hp6whj"]
+
+[ext_resource type="Script" path="res://v_ida.gd" id="1_0ewx0"]
+[ext_resource type="Texture2D" uid="uid://curj4u7tjkpog" path="res://ui/barra-fondo.png" id="2_1fcdm"]
+[ext_resource type="Texture2D" uid="uid://dheccv4f474a2" path="res://ui/barra-interior.png" id="3_5todu"]
+[ext_resource type="FontFile" uid="uid://cg0oab6o46yg7" path="res://ui/Fuentes/upheavtt.ttf" id="4_io0gi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6bdsw"]
+font = ExtResource("4_io0gi")
+font_size = 31
+
+[node name="VIda" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 782.0
+offset_bottom = -517.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ewx0")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -368.0
+offset_top = 33.0
+offset_right = -28.0
+offset_bottom = 133.0
+grow_horizontal = 0
+value = 100.0
+allow_lesser = true
+nine_patch_stretch = true
+texture_under = ExtResource("2_1fcdm")
+texture_progress = ExtResource("3_5todu")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -27.0
+offset_right = 3.0
+offset_bottom = 64.0
+grow_horizontal = 2
+text = "LUQUITA"
+label_settings = SubResource("LabelSettings_6bdsw")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkotbaqs3x4u6"]
+
+[ext_resource type="Script" path="res://Personajes/Mama/mama.gd" id="1_rfnl1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2v2h6"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ppy40"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_luqxh"]
+radius = 7.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_m16x3"]
+radius = 4.0
+
+[node name="Mama" type="CharacterBody3D"]
+script = ExtResource("1_rfnl1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_2v2h6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_ppy40")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(2, 0, 0)
+
+[node name="AreaPerseguir" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaPerseguir"]
+shape = SubResource("SphereShape3D_luqxh")
+
+[node name="AreaChancla" type="Area3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="AreaChancla"]
+shape = SubResource("SphereShape3D_m16x3")
+
+[connection signal="body_entered" from="AreaPerseguir" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="AreaPerseguir" to="." method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="AreaChancla" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="AreaChancla" to="." method="_on_area_3d_body_exited"]

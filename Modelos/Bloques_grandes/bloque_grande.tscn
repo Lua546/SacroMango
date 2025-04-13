@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpkwr6spmjsyq"]
+
+[ext_resource type="PackedScene" uid="uid://wpqu68qltfx6" path="res://Modelos/Bloques_grandes/Bloques_grandes.glb" id="1_4e703"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w135g"]
+size = Vector3(2.50208, 1.23749, 2.50098)
+
+[node name="Bloque_grande" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00689697, 0.617171, -0.0627441)
+shape = SubResource("BoxShape3D_w135g")
+
+[node name="blockbench_export" parent="." instance=ExtResource("1_4e703")]

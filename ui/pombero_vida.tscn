@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlx55b5kjg3qd"]
+
+[ext_resource type="Texture2D" uid="uid://djqqq0mngbw24" path="res://ui/barra-pombero1.png" id="1_ipqcu"]
+[ext_resource type="Script" path="res://pom_vida.gd" id="1_oc4vp"]
+[ext_resource type="Texture2D" uid="uid://cawnbhmvcjkf" path="res://ui/barra-pombero2.png" id="2_ajgvo"]
+[ext_resource type="FontFile" uid="uid://cg0oab6o46yg7" path="res://ui/Fuentes/upheavtt.ttf" id="4_2m5pt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6bdsw"]
+font = ExtResource("4_2m5pt")
+font_size = 31
+
+[node name="VIda" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 475.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oc4vp")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -380.0
+offset_top = -123.0
+offset_right = 380.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 150.0
+value = 150.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_ipqcu")
+texture_progress = ExtResource("2_ajgvo")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -138.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Pombero"
+label_settings = SubResource("LabelSettings_6bdsw")
+horizontal_alignment = 1

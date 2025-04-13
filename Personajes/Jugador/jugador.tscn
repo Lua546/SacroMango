@@ -1,0 +1,117 @@
+[gd_scene load_steps=9 format=3 uid="uid://bdryb6s51f715"]
+
+[ext_resource type="Script" path="res://Personajes/Jugador/jugador.gd" id="1_fy8ra"]
+[ext_resource type="PackedScene" uid="uid://iie4qhfhor7g" path="res://Personajes/Jugador/Piel.tscn" id="3_sf5og"]
+[ext_resource type="Texture2D" uid="uid://d1mvexft3uvct" path="res://ui/Puntero.png" id="4_4v1b8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_br7py"]
+radius = 0.197949
+height = 1.17725
+
+[sub_resource type="Animation" id="Animation_lgbcd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 4.137)]
+}
+
+[sub_resource type="Animation" id="Animation_6176k"]
+resource_name = "acercar"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 4.137), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ummod"]
+resource_name = "alejar"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 4.137)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6a8xi"]
+_data = {
+"RESET": SubResource("Animation_lgbcd"),
+"acercar": SubResource("Animation_6176k"),
+"alejar": SubResource("Animation_ummod")
+}
+
+[node name="Jugador" type="CharacterBody3D"]
+collision_layer = 3
+script = ExtResource("1_fy8ra")
+jump_impulse = 8.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.141511, 0)
+shape = SubResource("CapsuleShape3D_br7py")
+
+[node name="Camera_pivot" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Camera_pivot"]
+spring_length = 4.135
+
+[node name="Camera3D" type="Camera3D" parent="Camera_pivot/SpringArm3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 4.137)
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera_pivot/SpringArm3D/Camera3D"]
+libraries = {
+"": SubResource("AnimationLibrary_6a8xi")
+}
+
+[node name="Camara_tiro" type="Camera3D" parent="Camera_pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00532156, 0.07, 0.51)
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera_pivot/Camara_tiro"]
+target_position = Vector3(0, 0, -0.5)
+
+[node name="Puntero" type="RayCast3D" parent="Camera_pivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+
+[node name="Puntero" type="Container" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Puntero"]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("4_4v1b8")
+
+[node name="Piel" parent="." instance=ExtResource("3_sf5og")]
+unique_name_in_owner = true
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.481315, 0)
+
+[connection signal="animation_finished" from="Camera_pivot/SpringArm3D/Camera3D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
