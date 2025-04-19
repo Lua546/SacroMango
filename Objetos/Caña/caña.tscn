@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://bvj51pvew8cls"]
 
-[ext_resource type="Texture2D" uid="uid://co17bwejghopd" path="res://Modelos/caña/Caña_0.png" id="1_4gpfl"]
+[ext_resource type="Texture2D" uid="uid://vmusuqp7ywfq" path="res://Modelos/caña/Caña_0.png" id="1_4gpfl"]
 [ext_resource type="Script" path="res://Objetos/Caña/caña.gd" id="1_y0i8y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6omdr"]

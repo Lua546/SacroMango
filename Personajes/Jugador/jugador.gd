@@ -44,6 +44,11 @@ func _ready() -> void:
 	cam_atras.current = true
 	cam_tiro.current = false
 	
+	if Global.nivel == 1:
+		jump_impulse = 12.0
+	else:
+		jump_impulse = 12.0
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	var is_camera_motion := (

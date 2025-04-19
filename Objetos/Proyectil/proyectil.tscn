@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=4 uid="uid://bdxyol007phyn"]
 
 [ext_resource type="Script" path="res://Objetos/Proyectil/proyectil.gd" id="1_cyt37"]
-[ext_resource type="Texture2D" uid="uid://c1vpkdwic1cc7" path="res://Modelos/Mango/Mango_0.png" id="2_icnr0"]
-[ext_resource type="Texture2D" uid="uid://chgdlkwrn8e1q" path="res://Modelos/Mango/Mango_1.png" id="3_psl3n"]
+[ext_resource type="Texture2D" uid="uid://dsijqt4ol3qif" path="res://Modelos/Mango/Mango_0.png" id="2_icnr0"]
+[ext_resource type="Texture2D" uid="uid://bonhngoa4ry75" path="res://Modelos/Mango/Mango_1.png" id="3_psl3n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gw8ij"]
 resource_name = "material_0"

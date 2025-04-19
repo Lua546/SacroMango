@@ -7,11 +7,11 @@ var switch = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.nivel = 3
 	Global.mangos = 100
 	Global.vida = 100
 	Global.pom_vida = 150
 	Global.fase = 1
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -23,6 +23,3 @@ func _process(delta: float) -> void:
 	if Global.fase == 2 and switch == 0:
 		$Bloques_grandes/AnimationPlayer.play("salir")
 		switch = 1
-		
-	
-	
